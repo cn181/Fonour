@@ -36,7 +36,8 @@ namespace Fonour.MVC
             var sqlConnectionString = Configuration.GetConnectionString("Default");
 
             //添加数据上下文
-            services.AddDbContext<FonourDbContext>(options =>options.UseNpgsql(sqlConnectionString));
+            //services.AddDbContext<FonourDbContext>(options =>options.UseNpgsql(sqlConnectionString));
+            services.AddDbContext<FonourDbContext>(options => options.UseSqlServer(sqlConnectionString));
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IUserAppService, UserAppService>();
             services.AddMvc();
